@@ -37,8 +37,6 @@ extension BlockNoteSchemeHandler: WKURLSchemeHandler {
             return
         }
         
-        print("requestURL = \(requestURL)")
-        
         var resourceExtension = requestURL.pathExtension
         var resourceName = requestURL.deletingPathExtension().lastPathComponent
         if resourceName.isEmpty {
@@ -46,19 +44,13 @@ extension BlockNoteSchemeHandler: WKURLSchemeHandler {
             resourceExtension = "html"
         }
         
-        print("resourceName = \(resourceName)")
-        print("resourceExtension = \(resourceExtension)")
-        
         let directoryURL = requestURL.deletingLastPathComponent()
         let subdirectory = "Editor\(directoryURL.path(percentEncoded: false))"
-        print("subdirectory = \(subdirectory)")
         guard let resourceURL = Bundle.module.url(
             forResource: resourceName,
             withExtension: resourceExtension,
             subdirectory: subdirectory
         ) else {
-            print("ERROR: resource not found")
-            
             let errorResponse = HTTPURLResponse(
                 url: requestURL,
                 statusCode: 404,
@@ -69,8 +61,6 @@ extension BlockNoteSchemeHandler: WKURLSchemeHandler {
             return
         }
 
-        print("resourceURL = \(resourceURL)")
-        
         var contentType = switch resourceExtension {
         case "css": "text/css"
         case "html": "text/html"
@@ -78,8 +68,6 @@ extension BlockNoteSchemeHandler: WKURLSchemeHandler {
         case "svg": "image/svg+xml"
         default: "application/octet-stream"
         }
-        
-        print("contentType = \(contentType)")
         
         do {
             let data = try Data(contentsOf: resourceURL)
@@ -96,7 +84,6 @@ extension BlockNoteSchemeHandler: WKURLSchemeHandler {
             urlSchemeTask.didReceive(data)
             urlSchemeTask.didFinish()
         } catch {
-            print("ERROR: \(error)")
             urlSchemeTask.didFailWithError(error)
         }
     }
@@ -104,7 +91,5 @@ extension BlockNoteSchemeHandler: WKURLSchemeHandler {
     func webView(
         _ webView: WKWebView,
         stop urlSchemeTask: any WKURLSchemeTask
-    ) {
-        print("ToDO: \(#function)")
-    }
+    ) {}
 }
