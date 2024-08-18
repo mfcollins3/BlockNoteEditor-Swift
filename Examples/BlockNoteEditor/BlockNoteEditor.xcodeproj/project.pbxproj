@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		EF21E6002C72AEBC003024F8 /* BlockNote in Frameworks */ = {isa = PBXBuildFile; productRef = EF21E5FF2C72AEBC003024F8 /* BlockNote */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		EF5F7D6C2C72998200F90947 /* BlockNoteEditor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlockNoteEditor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -23,6 +27,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF21E6002C72AEBC003024F8 /* BlockNote in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +70,7 @@
 			);
 			name = BlockNoteEditor;
 			packageProductDependencies = (
+				EF21E5FF2C72AEBC003024F8 /* BlockNote */,
 			);
 			productName = BlockNoteEditor;
 			productReference = EF5F7D6C2C72998200F90947 /* BlockNoteEditor.app */;
@@ -95,6 +101,7 @@
 			mainGroup = EF5F7D632C72998200F90947;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
+				EF21E5FE2C72AEBC003024F8 /* XCLocalSwiftPackageReference "../../../main" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = EF5F7D6D2C72998200F90947 /* Products */;
@@ -337,6 +344,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		EF21E5FE2C72AEBC003024F8 /* XCLocalSwiftPackageReference "../../../main" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../../../main;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EF21E5FF2C72AEBC003024F8 /* BlockNote */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = BlockNote;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EF5F7D642C72998200F90947 /* Project object */;
 }

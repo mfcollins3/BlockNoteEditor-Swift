@@ -36,6 +36,7 @@ open class BlockNoteEditorView: UIView {
         super.init(frame: frame)
         
         addSubview(self.webView)
+        self.webView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             self.webView.leadingAnchor.constraint(
                 equalTo: safeAreaLayoutGuide.leadingAnchor
