@@ -66,6 +66,8 @@ extension BlockNoteSchemeHandler: WKURLSchemeHandler {
         case "html": "text/html"
         case "js": "text/javascript"
         case "svg": "image/svg+xml"
+        case "woff": "font/woff"
+        case "woff2": "font/woff2"
         default: "application/octet-stream"
         }
         
