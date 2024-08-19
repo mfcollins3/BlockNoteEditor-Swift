@@ -23,6 +23,7 @@ import UIKit
 import WebKit
 
 open class BlockNoteEditorView: UIView {
+    private let webViewHandler = BlockNoteEditorHandler()
     private let webView: WKWebView
     
     public override init(frame: CGRect) {
@@ -35,8 +36,11 @@ open class BlockNoteEditorView: UIView {
         
         super.init(frame: frame)
         
-        addSubview(self.webView)
+        self.webView.navigationDelegate = self.webViewHandler
+        self.webView.uiDelegate = self.webViewHandler
         self.webView.translatesAutoresizingMaskIntoConstraints = false
+        self.webView.keyboardDisplayRequiresUserAction = false
+        addSubview(self.webView)
         NSLayoutConstraint.activate([
             self.webView.leadingAnchor.constraint(
                 equalTo: safeAreaLayoutGuide.leadingAnchor

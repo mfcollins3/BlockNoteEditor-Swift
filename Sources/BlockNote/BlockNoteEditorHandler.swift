@@ -41,5 +41,66 @@ extension BlockNoteEditorHandler: WKNavigationDelegate {
 }
 
 extension BlockNoteEditorHandler: WKUIDelegate {
+    func webView(
+        _ webView: WKWebView,
+        createWebViewWith configuration: WKWebViewConfiguration,
+        for navigationAction: WKNavigationAction,
+        windowFeatures: WKWindowFeatures
+    ) -> WKWebView? {
+        print("\(#function)")
+        return nil
+    }
     
+    func webViewDidClose(_ webView: WKWebView) {
+        print("\(#function)")
+    }
+    
+    func webView(
+        _ webView: WKWebView,
+        runJavaScriptAlertPanelWithMessage message: String,
+        initiatedByFrame frame: WKFrameInfo
+    ) async {
+        print("\(#function)")
+    }
+    
+    func webView(
+        _ webView: WKWebView,
+        runJavaScriptConfirmPanelWithMessage message: String,
+        initiatedByFrame frame: WKFrameInfo
+    ) async -> Bool {
+        print("\(#function)")
+        return false
+    }
+    
+    func webView(
+        _ webView: WKWebView,
+        runJavaScriptTextInputPanelWithPrompt prompt: String,
+        defaultText: String?,
+        initiatedByFame frame: WKFrameInfo
+    ) async -> String? {
+        print("\(#function)")
+        return nil
+    }
+    
+    func webView(
+        _ webView: WKWebView,
+        showLockdownModeFirstUseMessage message: String
+    ) async -> WKDialogResult {
+        print("\(#function)")
+        return .showDefault
+    }
+    
+    #if os(iOS)
+    #endif
+    
+    #if os(macOS)
+    func webView(
+        _ webView: WKWebView,
+        runOpenPanelWith parameters: WKOpenPanelParameters,
+        initiatedByFrame frame: WKFrameInfo
+    ) async -> [URL]? {
+        print("\(#function)")
+        return nil
+    }
+    #endif
 }

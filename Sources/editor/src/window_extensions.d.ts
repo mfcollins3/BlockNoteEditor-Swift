@@ -18,13 +18,10 @@
 // FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 // IN THE SOFTWARE.
 
-import "@blocknote/core/fonts/inter.css";
-import { useCreateBlockNote } from "@blocknote/react";
-import { BlockNoteView } from "@blocknote/mantine";
-import "@blocknote/mantine/style.css";
+import {BlockNoteEditor} from "@blocknote/core";
 
-export default function App() {
-    const editor = useCreateBlockNote();
-    window.editor = editor;
-    return <BlockNoteView editor={editor} />;
+export declare global {
+    interface Window {
+        editor: BlockNoteEditor;
+    }
 }
